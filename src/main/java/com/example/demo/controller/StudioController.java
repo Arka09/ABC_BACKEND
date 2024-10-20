@@ -20,6 +20,7 @@ public class StudioController {
         this.studioService = studioService;
     }
 
+    // to create a new class
     @PostMapping("/classes")
     public ResponseEntity<String> createClass(@RequestBody ClassDetails classDetails) {
         if(!studioService.createClassService(classDetails)) {
@@ -29,6 +30,7 @@ public class StudioController {
         return new ResponseEntity<>("Class created successfully", HttpStatus.CREATED);
     }
 
+    //to book a class
     @PostMapping("/bookings")
     public ResponseEntity<String> bookClass(@RequestBody BookingDetails bookingDetails) {
 
@@ -39,6 +41,7 @@ public class StudioController {
         }
     }
 
+    //to get all bookings
     @GetMapping("get-all-bookings")
     public ResponseEntity<List<BookingDetails>> getAllBookings() {
         return new ResponseEntity<>(studioService.getAllBookingsService(), HttpStatus.OK);
